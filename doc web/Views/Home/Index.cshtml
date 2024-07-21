@@ -1,0 +1,73 @@
+﻿@model IEnumerable<doc_web.Models.FileModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles {
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="@Url.Content("~/css/site.css")" />
+}
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <table class="table table-responsive table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @if (item.IsFolder)
+                {
+                    <td><a class="folder-link" data-folder="@item.FileName" href="#">@item.FileName</a></td>
+                    <td>Folder</td>
+                    <td></td>
+                }
+                else
+                {
+                    <td>@item.FileName</td>
+                    <td>File</td>
+                    <td>
+                        <a href="/Home/DownloadFile?path=@item.FolderName">Download</a>
+                        <a href="~/Home/ViewFile?path=@item.FolderName"><i class="fa-solid fa-eye"></i></a>
+                    </td>
+                }
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('.folder-link').click(function (e) {
+            e.preventDefault();
+            var folderName = $(this).data('folder');
+            $.ajax({
+                url: '@Url.Action("Folder", "Home")',
+                type: 'GET',
+                data: { folderName: folderName },
+                success: function (data) {
+                    $('#myCarousel').html(data);
+                },
+                error: function () {
+                    console.log('Error loading folder contents.');
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+

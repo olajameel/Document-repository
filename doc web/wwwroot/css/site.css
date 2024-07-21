@@ -1,0 +1,125 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+  
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #f1f1f1;
+    color: #fff;
+    padding: 10px 20px;
+}
+.navbar-brand {
+    display: inline-block;
+}
+
+.navbar-brand img {
+        width: 130px;
+        height: auto;
+}
+.navbar {
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Distribute items evenly */
+}
+/* CSS for the table */
+#myCarousel {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .table th,
+    .table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .table th {
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f2f2f2;
+    }
+
+    .table ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .table .file {
+        margin-left: 20px;
+    }
+.folder, .file {
+    cursor: pointer;
+
+}
+
+    .folder::before {
+        content: '📁';
+        margin-right: 5px;
+    }
+
+    .file::before {
+        content: '📄';
+        margin-right: 5px;
+    }
+/* Style the search form */
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 150px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+button[type="submit"] {
+    background-color: #afafaf;
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+footer {
+    background-color: #f1f1f1;
+    color: #9a9a9a;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
